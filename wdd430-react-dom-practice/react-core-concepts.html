@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Core Concepts Practice</title>
+
+  <!--
+    COMPONENTS, PROPS, AND STATE — in my own words:
+    A component is a reusable JavaScript function that returns JSX, which React uses to render a piece
+    of the user interface; components can be nested and combined to build larger structures.
+    Props (short for "properties") are read-only values passed from a parent component to a child
+    component, letting the parent customize the child's behavior and appearance (for example, a name
+    passed into a Greeting). State is data managed inside a component that can change over time;
+    updating state through its setter function tells React the data has changed, so React re-renders
+    that component (and any children affected) to reflect the new values in the UI.
+  -->
+
+  <!-- React, ReactDOM, and Babel from unpkg (development versions) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 2rem;
+      background: #f9f9fb;
+      color: #1e2b3a;
+    }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-top: 0;
+    }
+    section {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e3e8ef;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    button {
+      background: #2a6f97;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1f5576;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/jsx">
+    // 1. Component that accepts a "name" prop and renders a personalized greeting
+    function Greeting(props) {
+      return <h2>Welcome aboard, {props.name}!</h2>;
+    }
+
+    // 2. Component that uses useState to track and update a count
+    function Counter() {
+      const [count, setCount] = React.useState(0);
+
+      return (
+        <section>
+          <h3>Counter Example</h3>
+          <p>Current count: {count}</p>
+          <button onClick={() => setCount(count + 1)}>Increment</button>
+        </section>
+      );
+    }
+
+    // 3. App component nests the Greeting and Counter components
+    function App() {
+      return (
+        <main>
+          <h1>React Core Concepts</h1>
+          <Greeting name="Alice" />
+          <Counter />
+        </main>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
