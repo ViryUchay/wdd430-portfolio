@@ -1,26 +1,31 @@
-import SkillCard from "@/components/SkillCard";
+import ProjectList from "@/components/ProjectList";
 
-export default function About() {
+const projects = [
+  {
+    title: "E-Commerce Dashboard",
+    description: "A full-stack Next.js app for managing products.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    link: "https://github.com/ViryUchay/wdd430-portfolio", // Update this!
+  },
+  {
+    title: "Weather Application",
+    description: "A React app that fetches and displays weather data.",
+    technologies: ["React", "JavaScript", "CSS"],
+    link: "https://github.com/ViryUchay/wdd430-portfolio", // Update this!
+  },
+];
+
+export default function Home() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold mb-4">About Me</h2>
-      <p className="text-lg text-gray-700 mb-8">
-        This about page shares more information about my background and work.
-        I&apos;m currently studying web development and building full-stack
-        applications with Next.js, React, and TypeScript.
-      </p>
-
-      <h3 className="text-2xl font-semibold mb-4">Technical Skills</h3>
-      <div className="grid gap-4 md:grid-cols-2">
-        <SkillCard
-          category="Frontend"
-          skills={["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]}
-        />
-        <SkillCard
-          category="Backend & Tools"
-          skills={["Node.js", "Next.js", "TypeScript", "Git", "GitHub"]}
-        />
-      </div>
+    <main className="container mx-auto px-4 py-12">
+      <section className="text-center py-12">
+        <h1 className="text-4xl font-bold mb-4">My Portfolio</h1>
+        <p className="text-lg text-gray-700">
+          I&apos;m a full-stack developer learning Next.js and React. Here are some
+          of my recent projects.
+        </p>
+      </section>
+      <ProjectList projects={projects} />
     </main>
   );
 }
