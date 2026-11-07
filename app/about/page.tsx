@@ -1,4 +1,4 @@
-import ProjectCard from "@/components/ProjectCard";
+import SkillCard from "@/components/SkillCard"; 
 
 export default function About() {
   return (
@@ -12,16 +12,14 @@ export default function About() {
 
       <h3 className="text-2xl font-semibold mb-4">My Core Skills</h3>
       <div className="grid gap-4 md:grid-cols-2">
-        {/* Using ProjectCard to display skills instead! */}
-        <ProjectCard
-          title="Frontend Development"
-          description="Building responsive and interactive user interfaces for the web."
-          technologies={["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]}
+        {/* CHANGED HERE */}
+        <SkillCard
+          category="Frontend Development"
+          skills={["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]}
         />
-        <ProjectCard
-          title="Backend & Tools"
-          description="Working with server-side logic, databases, and version control."
-          technologies={["Node.js", "Next.js", "TypeScript", "Git", "GitHub"]}
+        <SkillCard
+          category="Backend & Tools"
+          skills={["Node.js", "Next.js", "TypeScript", "Git", "GitHub"]}
         />
       </div>
     </main>
