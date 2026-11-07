@@ -1,14 +1,11 @@
 export default function Footer() {
+  const currentYear = new Date().getFullYear(); // Move it out here
+
   return (
-    <footer
-      style={{
-        textAlign: "center",
-        padding: "2rem",
-        color: "#6b7b8f",
-        fontSize: "0.9rem",
-      }}
-    >
-      © {new Date().getFullYear()} My Site
+    <footer className="bg-gray-800 text-white py-4 mt-12">
+      <div className="container mx-auto text-center">
+        <p>Copyright &copy; {currentYear} | Vivian Eze | All rights reserved</p>
+      </div>
     </footer>
   );
 }
